@@ -18,6 +18,7 @@ function OidcHandler:access(config)
   if filter.shouldProcessRequest(oidcConfig) then
     session.configure(config)
     handle(oidcConfig)
+    session:hide();
   else
     ngx.log(ngx.DEBUG, "OidcHandler ignoring request, path: " .. ngx.var.request_uri)
   end
